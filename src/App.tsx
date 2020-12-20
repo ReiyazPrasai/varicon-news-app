@@ -1,8 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, useEffect } from "react";
+import logo from "./logo.svg";
+import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
+import { getNews } from "./store/actions/newsAction";
+import { RootState } from "./store";
+import { getWeather } from "./store/actions/weatherAction";
 
-function App() {
+const App: FC = (props) => {
+  const dispatch = useDispatch();
+  const data = useSelector((state: RootState) => state);
+  console.log(data);
+
+  useEffect(() => {
+    dispatch(getNews());
+    dispatch(getWeather());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +34,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;

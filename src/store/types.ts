@@ -1,4 +1,6 @@
 export const FAILURE = "FAILURE";
+export const GET_NEWS = "GET_NEWS";
+export const GET_WEATHER = "GET_WEATHER";
 
 export interface SuccessAction {
   type: string;
